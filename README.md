@@ -1,2 +1,2 @@
 # HCEFUnlocker
-Xposed Module that Unlock HCE-F (Host Card Emulation Type F) IDm and System code
+An Xposed Module that Unlocks HCE-F (Host Card Emulation Type F) IDm and System code restriction.
