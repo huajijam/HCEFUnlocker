@@ -24,7 +24,7 @@ public class UnlockModule implements IXposedHookLoadPackage {
                     Log.e(TAG, "System Code " + systemCode + " is not a valid System Code.");
                     return false;
                 }
-                // check if the value is between "4000" nd "4FFF" (excluding "4*FF")
+                // check if the value is between "4000" and "4FFF" (excluding "4*FF")
                 if (!systemCode.startsWith("4") || systemCode.toUpperCase().endsWith("FF")) {
                     // Log.e(TAG, "System Code " + systemCode + " is not a valid System Code.");
                     // return false;
