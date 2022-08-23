@@ -1,4 +1,4 @@
-package com.example.hcefunlocker;
+package tech.oliet.hcefunlocker;
 
 import org.junit.Test;
 

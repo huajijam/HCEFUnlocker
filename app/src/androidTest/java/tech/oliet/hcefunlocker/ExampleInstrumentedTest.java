@@ -1,4 +1,4 @@
-package com.example.hcefunlocker;
+package tech.oliet.hcefunlocker;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.hcefunlocker", appContext.getPackageName());
+        assertEquals("tech.oliet.hcefunlocker", appContext.getPackageName());
     }
 }

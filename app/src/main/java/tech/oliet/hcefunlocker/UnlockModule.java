@@ -1,4 +1,4 @@
-package com.example.hcefunlocker;
+package tech.oliet.hcefunlocker;
 
 import android.util.Log;
 
