@@ -1,5 +1,6 @@
 package tech.oliet.hcefunlocker;
 
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,6 +8,8 @@ import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.lang.reflect.Method;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -23,10 +26,9 @@ public class MainActivity extends AppCompatActivity {
         if (!isHCEFSupported) {
             mes += "not ";
         }
-
         mes += "supported";
 
-        TextView text = (TextView) findViewById(R.id.textView);
+        TextView text = (TextView) findViewById(R.id.textViewSupported);
         text.setText(mes);
         if (isHCEFSupported) {
             text.setTextColor(Color.GREEN);
@@ -34,6 +36,38 @@ public class MainActivity extends AppCompatActivity {
             text.setTextColor(Color.RED);
         }
 
-        //TODO show whether HCE-F is unlocked
+        if (isHCEFSupported) {
+            boolean isHCEFUnlocked = false;
+            String mes2 = "";
+
+            try {
+                isHCEFUnlocked = isValidSystemCode("ABCD");
+                Log.d("HCEFUnlocker", "isHCEFUnlocked:" + isHCEFUnlocked);
+
+                mes2 += "HCE-F is ";
+                if (!isHCEFUnlocked) {
+                    mes2 += "not ";
+                }
+                mes2 += "unlocked";
+            } catch (Exception e) {
+                e.printStackTrace();
+                mes2 = "Unable to get unlock state";
+            }
+
+            TextView text2 = (TextView) findViewById(R.id.textViewUnlocked);
+            text2.setText(mes2);
+            if (isHCEFUnlocked) {
+                text2.setTextColor(Color.GREEN);
+            } else {
+                text2.setTextColor(Color.RED);
+            }
+        }
+    }
+
+    @SuppressLint("SoonBlockedPrivateApi")
+    private static boolean isValidSystemCode(String systemCode) throws Exception {
+        Class<?> clazz = Class.forName("android.nfc.cardemulation.NfcFCardEmulation");
+        Method method = clazz.getDeclaredMethod("isValidSystemCode", String.class);
+        return (boolean) method.invoke(null, systemCode);
     }
 }
