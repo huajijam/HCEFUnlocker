@@ -3,11 +3,14 @@ package tech.oliet.hcefunlocker;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.lsposed.hiddenapibypass.HiddenApiBypass;
 
 import java.lang.reflect.Method;
 
@@ -67,7 +70,12 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SoonBlockedPrivateApi")
     private static boolean isValidSystemCode(String systemCode) throws Exception {
         Class<?> clazz = Class.forName("android.nfc.cardemulation.NfcFCardEmulation");
-        Method method = clazz.getDeclaredMethod("isValidSystemCode", String.class);
-        return (boolean) method.invoke(null, systemCode);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+            Method method = clazz.getDeclaredMethod("isValidSystemCode", String.class);
+            return (boolean) method.invoke(null, systemCode);
+        } else {
+            return (boolean) HiddenApiBypass.invoke(clazz, null, "isValidSystemCode", systemCode);
+        }
     }
 }
