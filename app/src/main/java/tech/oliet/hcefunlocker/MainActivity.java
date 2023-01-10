@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        isHCEFSupported = this.getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC_HOST_CARD_EMULATION_NFCF);
+        isHCEFSupported = getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC_HOST_CARD_EMULATION_NFCF);
         Log.d("HCEFUnlocker", "isHCEFSupported:" + isHCEFSupported);
 
         String mes = "";
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         }
         mes += "supported";
 
-        TextView text = (TextView) findViewById(R.id.textViewSupported);
+        TextView text = findViewById(R.id.textViewSupported);
         text.setText(mes);
         if (isHCEFSupported) {
             text.setTextColor(Color.GREEN);
@@ -62,10 +62,10 @@ public class MainActivity extends AppCompatActivity {
                 mes += "unlocked";
             } catch (Exception e) {
                 e.printStackTrace();
-                mes = "Unable to get unlock state";
+                mes = "Unable to get unlocked state";
             }
 
-            TextView text = (TextView) findViewById(R.id.textViewUnlocked);
+            TextView text = findViewById(R.id.textViewUnlocked);
             text.setText(mes);
             if (isHCEFUnlocked) {
                 text.setTextColor(Color.GREEN);
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 text.setTextColor(Color.RED);
             }
 
-            TextView notice = (TextView) findViewById(R.id.textViewNotice);
+            TextView notice = findViewById(R.id.textViewNotice);
             if (isHCEFUnlocked) {
                 notice.setText("Also you need to apply this module to Nfc Service\n\n'Hide' -> uncheck 'System apps' -> search 'Nfc Service'");
             } else {
