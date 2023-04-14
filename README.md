@@ -2,6 +2,8 @@
 
 An Xposed Module that Unlocks HCE-F (Host Card Emulation Type F) IDm and System code restrictions.
 
+[サポートページ](https://blog.oliet.tech/?p=240)
+
 # NOTICE
 
 This is an Xposed module, so that you should register this app to Xposed compatible framework.
