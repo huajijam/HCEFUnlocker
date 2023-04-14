@@ -75,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
 
             TextView notice = findViewById(R.id.textViewNotice);
             if (isHCEFUnlocked) {
-                notice.setText("Also you need to apply this module to Nfc Service\n\n'Hide' -> uncheck 'System apps' -> search 'Nfc Service'");
+                notice.setText("Also you may need to apply this module to Nfc Service manually and reboot\n\n'Hide' -> uncheck 'System apps' -> search 'Nfc Service'");
             } else {
-                notice.setText("Enable this module in LSPosed\n\nThis app needs Xposed compatible framework");
+                notice.setText("Enable this module in LSPosed and reboot\n\nThis app needs Xposed compatible framework");
             }
         }
     }
