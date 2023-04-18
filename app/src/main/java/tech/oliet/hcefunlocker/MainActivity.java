@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     hideLauncherIcon.setChecked(true);
                     hcefunlocker.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-                    Toast.makeText(getApplication(), R.string.hide_desktop_enable, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(), R.string.hide_desktop_enable, Toast.LENGTH_LONG).show();
                     editor.putBoolean("hide_icon", true);
                 }
                 editor.commit();
