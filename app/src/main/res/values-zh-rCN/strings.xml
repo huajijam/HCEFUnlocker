@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about">关于</string>
+    <string name="about">关于 HCEFUnlocker</string>
     <string name="hide_desktop_disable">启动器图标隐藏已关闭</string>
     <string name="hide_desktop_enable">启动器图标隐藏已开启,您仍然可以在 Xposed 管理器中打开此应用</string>
     <string name="hide_launcher">在启动器中隐藏图标</string>
