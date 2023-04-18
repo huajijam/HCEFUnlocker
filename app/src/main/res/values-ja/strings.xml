@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about">HCEFUnlocker について</string>
+    <string name="hide_desktop_disable">ランチャーアイコンを再生成しました</string>
+    <string name="hide_desktop_enable">ランチャーアイコンを無効化しました\nXposed マネージャーからアプリを開くことができます</string>
+    <string name="hide_launcher">ランチャーアイコンを隠す</string>
+    <string name="notice_disable">LSPosed マネージャーからこのモジュールを有効化し再起動してください\n\nこのアプリには Xposed 互換フレームワークが必要です</string>
+    <string name="notice_enabled">NFC サービスに当モジュールを手動で適用し再起動する必要がある場合があります</string>
+    <string name="support_state_false">HCE-F が搭載されていません</string>
+    <string name="support_state_true">HCE-F が搭載されています</string>
+    <string name="unlock_state_error">解錠状態を取得できません</string>
+    <string name="unlock_state_false">HCE-F は解錠されていません</string>
+    <string name="unlock_state_true">HCE-F は解錠されています</string>
+</resources>
