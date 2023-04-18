@@ -27,19 +27,12 @@ public class MainActivity extends AppCompatActivity {
         isHCEFSupported = getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC_HOST_CARD_EMULATION_NFCF);
         Log.d("HCEFUnlocker", "isHCEFSupported:" + isHCEFSupported);
 
-        String mes = "";
-
-        mes += "HCE-F is ";
-        if (!isHCEFSupported) {
-            mes += "not ";
-        }
-        mes += "supported";
-
         TextView text = findViewById(R.id.textViewSupported);
-        text.setText(mes);
         if (isHCEFSupported) {
+            text.setText(R.string.unlock_state_true);
             text.setTextColor(Color.GREEN);
         } else {
+            text.setText(R.string.unlock_state_false);
             text.setTextColor(Color.RED);
         }
     }
@@ -49,24 +42,20 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         if (isHCEFSupported) {
-            String mes = "";
-
+            TextView text = findViewById(R.id.textViewUnlocked);
             try {
                 isHCEFUnlocked = isValidSystemCode("ABCD");
                 Log.d("HCEFUnlocker", "isHCEFUnlocked:" + isHCEFUnlocked);
 
-                mes += "HCE-F is ";
-                if (!isHCEFUnlocked) {
-                    mes += "not ";
+                if (isHCEFUnlocked) {
+                    text.setText(R.string.unlock_state_true);
+                } else {
+                    text.setText(R.string.unlock_state_false);
                 }
-                mes += "unlocked";
             } catch (Exception e) {
                 e.printStackTrace();
-                mes = "Unable to get unlocked state";
+                text.setText(R.string.unlock_state_error);
             }
-
-            TextView text = findViewById(R.id.textViewUnlocked);
-            text.setText(mes);
             if (isHCEFUnlocked) {
                 text.setTextColor(Color.GREEN);
             } else {
@@ -75,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
             TextView notice = findViewById(R.id.textViewNotice);
             if (isHCEFUnlocked) {
-                notice.setText("Also you may need to apply this module to Nfc Service manually and reboot\n\n'Hide' -> uncheck 'System apps' -> search 'Nfc Service'");
+                notice.setText(R.string.notce_enabled);
             } else {
-                notice.setText("Enable this module in LSPosed and reboot\n\nThis app needs Xposed compatible framework");
+                notice.setText(R.string.notce_disable);
             }
         }
     }

@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">HCEFUnlocker</string>
+    <string name="app_name" translatable="false">HCEFUnlocker</string>
+    <string name="notce_enabled">Also you may need to apply this module to Nfc Service manually and reboot</string>
+    <string name="notce_disable">Enable this module in LSPosed and reboot\n\nThis app needs Xposed compatible framework</string>
+    <string name="unlock_state_error">Unable to get unlocked state</string>
+    <string name="unlock_state_true">HCE-F is unlocked</string>
+    <string name="unlock_state_false">HCE-F is not unlocked</string>
+    <string name="support_state_true">HCE-F is supported</string>
+    <string name="support_state_false">HCE-F is not supported</string>
 </resources>
