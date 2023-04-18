@@ -14,13 +14,24 @@
         android:theme="@style/Theme.HCEFUnlocker">
 
         <activity
-            android:name=".MainActivity"
+            android:name="tech.oliet.hcefunlocker.MainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="de.robv.android.xposed.category.MODULE_SETTINGS" />
+            </intent-filter>
+        </activity>
+
+        <activity-alias
+            android:name=".MainActivityLauncher"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:targetActivity="tech.oliet.hcefunlocker.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity-alias>
 
         <meta-data
             android:name="xposedmodule"
@@ -33,7 +44,7 @@
             android:value="53" />
         <meta-data
             android:name="xposedscope"
-            android:value="android;com.android.nfc" />
+            android:value="com.android.nfc" />
     </application>
 
 </manifest>
