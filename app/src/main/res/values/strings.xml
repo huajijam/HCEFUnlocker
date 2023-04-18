@@ -4,8 +4,8 @@
     <string name="hide_desktop_disable">Launcher icon re-enabled</string>
     <string name="hide_desktop_enable">Launcher icon has been disabled,you can still open the app in Xposed manager</string>
     <string name="hide_launcher">Hide launcher icon</string>
-    <string name="notce_disable">Enable this module in LSPosed manager and reboot\n\nThis app needs Xposed compatible framework</string>
-    <string name="notce_enabled">You may need to apply this module to Nfc Service manually and reboot</string>
+    <string name="notice_disable">Enable this module in LSPosed manager and reboot\n\nThis app needs Xposed compatible framework</string>
+    <string name="notice_enabled">You may need to apply this module to Nfc Service manually and reboot</string>
     <string name="support_state_false">HCE-F is not supported</string>
     <string name="support_state_true">HCE-F is supported</string>
     <string name="unlock_state_error">Unable to get unlocked state</string>

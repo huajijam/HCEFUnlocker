@@ -111,9 +111,9 @@ public class MainActivity extends AppCompatActivity {
 
             TextView notice = findViewById(R.id.textViewNotice);
             if (isHCEFUnlocked) {
-                notice.setText(R.string.notce_enabled);
+                notice.setText(R.string.notice_enabled);
             } else {
-                notice.setText(R.string.notce_disable);
+                notice.setText(R.string.notice_disable);
             }
         }
     }
