@@ -44,7 +44,7 @@
             android:value="53" />
         <meta-data
             android:name="xposedscope"
-            android:value="android;com.android.nfc" />
+            android:value="com.android.nfc" />
     </application>
 
 </manifest>
