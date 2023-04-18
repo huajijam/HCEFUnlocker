@@ -3,7 +3,7 @@
     <string name="app_name" translatable="false">HCEFUnlocker</string>
     <string name="url_about" translatable="false">https://github.com/OLIET2357/HCEFUnlocker</string>
     <string name="hide_desktop_disable">Launcher icon re-enabled</string>
-    <string name="hide_desktop_enable">Launcher icon has been disabled,you can still open the app in Xposed manager</string>
+    <string name="hide_desktop_enable">Launcher icon has been disabled\nyou can still open the app in Xposed manager</string>
     <string name="hide_launcher">Hide launcher icon</string>
     <string name="notice_disable">Enable this module in LSPosed manager and reboot\n\nThis app needs Xposed compatible framework</string>
     <string name="notice_enabled">You may need to apply this module to Nfc Service manually and reboot</string>
