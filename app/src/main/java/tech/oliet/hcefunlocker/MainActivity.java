@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.commit();
                 break;
             case R.id.about:
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/OLIET2357/HCEFUnlocker"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.url_about)));
                 startActivity(browserIntent);
                 break;
         }
