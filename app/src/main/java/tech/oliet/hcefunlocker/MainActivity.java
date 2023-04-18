@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
         TextView text = findViewById(R.id.textViewSupported);
         if (isHCEFSupported) {
-            text.setText(R.string.unlock_state_true);
+            text.setText(R.string.support_state_true);
             text.setTextColor(Color.GREEN);
         } else {
-            text.setText(R.string.unlock_state_false);
+            text.setText(R.string.support_state_false);
             text.setTextColor(Color.RED);
         }
     }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notce_enabled">您可能需要在模组作用域中手动选择NFC服务并重启</string>
+    <string name="notce_disable">在LSPosed中启用该模组并重启\n\n本App需要Xposed兼容框架</string>
+    <string name="unlock_state_error">无法获得解锁状态</string>
+    <string name="unlock_state_true">HCE-F 已解锁</string>
+    <string name="unlock_state_false">HCE-F 未解锁</string>
+    <string name="support_state_true">HCE-F 可用</string>
+    <string name="support_state_false">HCE-F 不可用</string>
+</resources>
