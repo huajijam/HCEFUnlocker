@@ -1,20 +1,19 @@
-# HCEFUnlocker
+# **HCEFUnlocker**
 
-An Xposed Module that Unlocks HCE-F (Host Card Emulation Type F) IDm and System code restrictions.
+An ```Xposed``` module that unlocks HCE-F (Host Card Emulation Type-F) IDm and System code restrictions.
 
-[サポートページ](https://blog.oliet.tech/?p=240)
+[Blog Post](https://blog.oliet.tech/?p=240)
 
-# NOTICE
+## Notice
 
-This is an Xposed module, so that you should register this app to Xposed compatible framework.
+This is an ```Xposed``` module, so that you should register this app to an ```Xposed``` compatible framework.
 
-## Below v2.4
+### Below v2.4
 
-If you are using LSPosed, need to unhide `System apps` and select `Nfc Service`.
+If you are using ```LSPosed```, you may need to unhide "System Apps" and select "NFC Service"
 
 ![LSPosed_NFCService](LSPosed_NFCService.png)
 
-# LICENSE
 
-This software includes the work that is distributed under the Apache License 2.0.
-And it has some changes.
+
+
