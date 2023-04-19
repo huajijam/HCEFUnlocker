@@ -20,13 +20,16 @@ import org.lsposed.hiddenapibypass.HiddenApiBypass
 class MainActivity : AppCompatActivity() {
     private var isHCEFSupported = false
     private var isHCEFUnlocked = false
-    var hideLauncherIcon: MenuItem? = null
+    private lateinit var hideLauncherIcon: MenuItem
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         isHCEFSupported =
             packageManager.hasSystemFeature(PackageManager.FEATURE_NFC_HOST_CARD_EMULATION_NFCF)
         Log.d("HCEFUnlocker", "isHCEFSupported:$isHCEFSupported")
+
         val text = findViewById<TextView>(R.id.textViewSupported)
         if (isHCEFSupported) {
             text.setText(R.string.support_state_true)
@@ -41,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.main, menu)
         hideLauncherIcon = menu.findItem(R.id.hide_launcher_icon)
-        hideLauncherIcon.setChecked(ReadSharedPreferences("hide_icon"))
+        hideLauncherIcon.isChecked = readSharedPreferences("hide_icon")
         return true
     }
 
@@ -54,8 +57,13 @@ class MainActivity : AppCompatActivity() {
                 val hcefunlocker = packageManager
                 val componentName =
                     ComponentName(this, "tech.oliet.hcefunlocker.MainActivityLauncher")
-                if (hideLauncherIcon!!.isChecked) {
-                    hideLauncherIcon!!.isChecked = false
+
+                if (!this::hideLauncherIcon.isInitialized) {
+                    return false
+                }
+
+                if (hideLauncherIcon.isChecked) {
+                    hideLauncherIcon.isChecked = false
                     hcefunlocker.setComponentEnabledSetting(
                         componentName,
                         PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
@@ -65,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                         .show()
                     editor.putBoolean("hide_icon", false)
                 } else {
-                    hideLauncherIcon!!.isChecked = true
+                    hideLauncherIcon.isChecked = true
                     hcefunlocker.setComponentEnabledSetting(
                         componentName,
                         PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
@@ -75,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                         .show()
                     editor.putBoolean("hide_icon", true)
                 }
-                editor.commit()
+                editor.apply()
             }
 
             R.id.about -> {
@@ -92,7 +100,7 @@ class MainActivity : AppCompatActivity() {
         if (isHCEFSupported) {
             val text = findViewById<TextView>(R.id.textViewUnlocked)
             try {
-                isHCEFUnlocked = isValidSystemCode("ABCD")
+                isHCEFUnlocked = isValidSystemCode("1234")
                 Log.d("HCEFUnlocker", "isHCEFUnlocked:$isHCEFUnlocked")
                 if (isHCEFUnlocked) {
                     text.setText(R.string.unlock_state_true)
@@ -103,11 +111,13 @@ class MainActivity : AppCompatActivity() {
                 e.printStackTrace()
                 text.setText(R.string.unlock_state_error)
             }
+
             if (isHCEFUnlocked) {
                 text.setTextColor(Color.GREEN)
             } else {
                 text.setTextColor(Color.RED)
             }
+
             val notice = findViewById<TextView>(R.id.textViewNotice)
             if (isHCEFUnlocked) {
                 notice.setText(R.string.notice_enabled)
@@ -124,14 +134,13 @@ class MainActivity : AppCompatActivity() {
         Process.killProcess(Process.myPid())
     }
 
-    private fun ReadSharedPreferences(key: String): Boolean {
+    private fun readSharedPreferences(key: String): Boolean {
         val preferences = applicationContext.getSharedPreferences("HCEFUnlocker", MODE_PRIVATE)
         return preferences.getBoolean(key, false)
     }
 
     companion object {
         @SuppressLint("SoonBlockedPrivateApi")
-        @Throws(Exception::class)
         private fun isValidSystemCode(systemCode: String): Boolean {
             val clazz = Class.forName("android.nfc.cardemulation.NfcFCardEmulation")
             return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
