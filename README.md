@@ -8,7 +8,7 @@ An `Xposed` module that unlocks HCE-F (Host Card Emulation Type-F) IDm and Syste
 
 This is an `Xposed` module, so that you should register this app to an `Xposed` compatible framework.
 
-### Below v2.4
+### Below version 2.4
 
 If you are using `LSPosed`, you may need to unhide "System Apps" and select "NFC Service"
 
