@@ -2,7 +2,7 @@
 <resources>
     <string name="about">关于 HCEFUnlocker</string>
     <string name="hide_desktop_disable">启动器图标隐藏已关闭</string>
-    <string name="hide_desktop_enable">启动器图标隐藏已开启,您仍然可以在 Xposed 管理器中打开此应用</string>
+    <string name="hide_desktop_enable">您仍可以在 Xposed 管理器中打开此应用</string>
     <string name="hide_launcher">在启动器中隐藏图标</string>
     <string name="notice_disable">在 LSPosed 管理器中启用该模组并重启\n\n本App需要 Xposed 兼容框架</string>
     <string name="notice_enabled">您可能需要在模组作用域中手动选择NFC服务并重启</string>
