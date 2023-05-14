@@ -10,7 +10,6 @@ android {
         targetSdkVersion 33
         versionCode 8
         versionName "2.5"
-        resourceConfigurations += ["en", "ja", "zh_CN"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
